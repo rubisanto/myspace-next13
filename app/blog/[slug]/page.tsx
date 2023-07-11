@@ -10,6 +10,14 @@ interface Props {
   params: { slug: string };
 }
 
+export async function generateStaticParams() {
+  const posts: Post[] = await fetch("http://localhost:3000/api/content").then(
+    (res) => res.json()
+  );
+
+  return posts.map((post) => ({ params: { slug: post.slug } }));
+}
+
 export default async function BlogPostPage({ params }: Props) {
   const posts: Post[] = await fetch("http://localhost:3000/api/content").then(
     (res) => res.json()
