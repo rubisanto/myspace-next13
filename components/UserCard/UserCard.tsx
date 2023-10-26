@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "./UserCard.module.css";
+// import styles from "./UserCard.module.css";
 
 interface Props {
   id: string;
@@ -10,13 +10,18 @@ interface Props {
 
 export default function UserCard({ id, name, age, image }: Props) {
   return (
-    <div className={styles.card}>
+    <div
+    // à décommenter à la création du fichier css
+    // className={styles.card}
+    >
       <img
         src={image ?? "/mememan.webp"}
         alt={`${name}'s profile`}
-        className={styles.cardImage}
+        // className={styles.cardImage}
       />
-      <div className={styles.cardContent}>
+      <div
+      // className={styles.cardContent}
+      >
         <h3>
           <Link href={`/users/${id}`}>{name}</Link>
         </h3>
